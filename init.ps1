@@ -1,4 +1,4 @@
-﻿# init.ps1 - CCX 项目初次配置脚本（简洁版 + 端口提示）
+﻿# init.ps1 - CCX 项目初次配置脚本（简洁版 + 端口提示 + 忽略卸载脚本）
 # 用法：在项目根目录 (ccx/) 下执行 .\init.ps1
 
 Write-Host "🚀 开始初始化 CCX 项目配置..." -ForegroundColor Cyan
@@ -53,12 +53,13 @@ services:
 '@
 Set-Content -Path "docker-compose.override.yml" -Value $overrideContent -Encoding UTF8NoBOM -Force
 
-# 5️ 配置 .gitignore
+# 5️⃣ 配置 .gitignore（新增 uninstall.ps1）
 Write-Host "🔐 配置 .gitignore..." -ForegroundColor Yellow
 $gitignoreRules = @"
 
 # === Local setup & personal configs (NEVER commit) ===
 init.ps1
+uninstall.ps1
 .env
 docker-compose.override.yml
 logs/
@@ -67,7 +68,7 @@ logs/
 "@
 Add-Content -Path ".gitignore" -Value $gitignoreRules -Encoding UTF8NoBOM
 
-# 6️ 输出结果（保持原格式，新增端口提示）
+# 6️⃣ 输出结果（保持原格式，新增端口提示）
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Magenta
 Write-Host "✅ 配置初始化完成！" -ForegroundColor Green
