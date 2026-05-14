@@ -53,7 +53,7 @@ services:
 '@
 Set-Content -Path "docker-compose.override.yml" -Value $overrideContent -Encoding UTF8NoBOM -Force
 
-# 5️⃣ 配置 .gitignore（新增 uninstall.ps1）
+# 5️⃣ 配置 .gitignore
 Write-Host "🔐 配置 .gitignore..." -ForegroundColor Yellow
 $gitignoreRules = @"
 
@@ -81,7 +81,7 @@ Write-Host "🌐 服务端口已自定义为 9527（非默认 3000）" -Foregrou
 Write-Host "   管理面板: http://localhost:9527" -ForegroundColor White
 Write-Host "   API 接口: http://localhost:9527/v1" -ForegroundColor White
 Write-Host ""
-Write-Host "⚠️  请务必立即复制保存此密钥！" -ForegroundColor Yellow
+Write-Host "⚠️ 请务必立即复制保存此密钥！" -ForegroundColor Yellow
 Write-Host "   后续 API 调用或登录管理面板均需使用。" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Magenta
